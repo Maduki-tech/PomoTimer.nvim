@@ -8,8 +8,6 @@ local Timer = {}
 
 Timer.is_running = false
 Timer.remaining_time = 0
-Timer.work_duration = 25 * 60
-Timer.break_duration = 5 * 60
 Timer.mode = "work"
 
 local function update_statusline()
