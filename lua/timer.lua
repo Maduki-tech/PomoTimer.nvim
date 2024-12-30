@@ -1,3 +1,5 @@
+local ui = require("ui")
+
 ---@class Timer
 ---@field is_running boolean
 ---@field remaining_time number
@@ -29,21 +31,26 @@ function Timer:start()
 		1000,
 		1000,
 		vim.schedule_wrap(function()
+			-- Count down the time
 			if self.remaining_time > 0 then
 				self.remaining_time = self.remaining_time - 1
 				update_statusline()
 			else
 				if self.mode == "work" then
+					-- Switch to break mode
 					self.mode = "break"
 					self.remaining_time = self.break_duration
-					vim.notify("Break time!", vim.log.levels.INFO, {})
+					ui.vim.notify("Break time!", vim.log.levels.INFO, {})
 				else
+					-- Switch to work mode
 					self.mode = "work"
 					self.remaining_time = self.work_duration
 					vim.notify("Work time!", vim.log.levels.INFO, {})
 				end
 				update_statusline()
 			end
+
+			-- Stop the timer if it's not running
 			if not self.is_running then
 				timer:stop()
 				timer:close()
