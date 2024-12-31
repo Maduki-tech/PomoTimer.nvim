@@ -13,10 +13,10 @@ A Pomodoro timer for Neovim in the Statusline.
 
 ## Roadmap
 
-- [ ] Customizable Break Time
-- [ ] Customizable Work Time
+- [x] Customizable Break Time
+- [x] Customizable Work Time
+- [x] Notifications
 - [ ] Make work with other Statusline Tools
-- [ ] Notifications
 
 ## Usage
 
